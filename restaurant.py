@@ -10,11 +10,11 @@ class Restaurant:
         else:
             print("\nRestaurant Menu:")
             for item, price in self.menu.items():
-                print(f"{item}: ${price}")
+                print(f"{item}: {price}Tk")
 
     def add_menu_item(self, item, price):
         self.menu[item] = price
-        print(f"Added {item} to menu for ${price}")
+        print(f"Added {item} to menu for {price}Tk")
 
     def remove_menu_item(self, item):
         if item in self.menu:
@@ -26,7 +26,7 @@ class Restaurant:
     def update_menu_item(self, item, new_price):
         if item in self.menu:
             self.menu[item] = new_price
-            print(f"Updated {item} price to ${new_price}")
+            print(f"Updated {item} price to {new_price}TK")
         else:
             print("Item not found in menu.")
 
@@ -36,18 +36,4 @@ class Restaurant:
         else:
             print("\nRegistered Customers:")
             for email, customer in self.customers.items():
-                print(f"Name: {customer.name}, Email: {email}, Address: {customer.address}")
-
-    def add_customer(self, name, email, address, password):
-        if email in self.customers:
-            print("Customer already exists.")
-        else:
-            self.customers[email] = Customer(name, email, address, password)
-            print("Customer added successfully.")
-
-    def remove_customer(self, email):
-        if email in self.customers:
-            del self.customers[email]
-            print("Customer removed successfully.")
-        else:
-            print("Customer not found.")
+                print(f"Name: {customer.name}, Email: {email}, Address: {customer.address}, Balance: {customer.balance}TK")
