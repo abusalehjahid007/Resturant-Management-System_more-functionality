@@ -1,4 +1,5 @@
 from restaurant import Restaurant
+from customer import Customer
 
 class Admin:
     def __init__(self, name, email, password):
@@ -25,3 +26,21 @@ class Admin:
                 restaurant.show_menu()
             elif choice == "5":
                 restaurant.show_customers()
+            elif choice == "6":
+                name = input("Enter customer name: ")
+                email = input("Enter customer email: ")
+                address = input("Enter customer address: ")
+                password = input("Enter password: ")
+                restaurant.customers[email] = Customer(name, email, address, password)
+                print("Customer added successfully.")
+            elif choice == "7":
+                email = input("Enter customer email to remove: ")
+                if email in restaurant.customers:
+                    del restaurant.customers[email]
+                    print(f"Customer with email {email} removed.")
+                else:
+                    print("Customer not found.")
+            elif choice == "8":
+                break
+            else:
+                print("Invalid choice.")
