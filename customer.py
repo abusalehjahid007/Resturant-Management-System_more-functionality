@@ -8,9 +8,12 @@ class Customer:
         self.order_history = []
         
 
-    def add_funds(self, amount):
-        self.balance += amount
-        print(f"{amount}Tk added to your balance. New balance: {self.balance}Tk")
+    def add_balance(self, amount):
+        if amount <= 0:
+            print("Invalid amount. Please enter positive numbers.")
+        else:
+            self.balance += amount
+            print(f"{amount}Tk added to your balance. New balance: {self.balance}Tk")
 
 
     def view_balance(self):
